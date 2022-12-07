@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 import Home from "../src/components/Home";
+import ModalSearch from "../src/components/ModalSearch";
 import axios from "axios";
 
 function Index(props) {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products")
@@ -15,33 +18,39 @@ function Index(props) {
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
   function addProducts(title) {
     axios
-        .fetch('https://dummyjson.com/products/add', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      .fetch("https://dummyjson.com/products/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            title: title,
-            /* other product data */
-        })
-    }).then(res => res.json()).then(console.log);
+          title: title,
+          /* other product data */
+        }),
+      })
+      .then((res) => res.json())
+      .then(console.log);
   }
   function updateProducts(id, title) {
     axios
-        .fetch('https://dummyjson.com/products/' + id, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+      .fetch("https://dummyjson.com/products/" + id, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: title
-        })
-    }).then(res => res.json()).then(console.log);
+          title: title,
+        }),
+      })
+      .then((res) => res.json())
+      .then(console.log);
   }
   function deleteProducts(id) {
     axios
-        .fetch('https://dummyjson.com/products/' + id, {
-        method: 'DELETE',
-    }).then(res => res.json()).then(console.log);
+      .fetch("https://dummyjson.com/products/" + id, {
+        method: "DELETE",
+      })
+      .then((res) => res.json())
+      .then(console.log);
   }
   function handleSearch(e) {
     let value = e.target.value;
@@ -54,11 +63,17 @@ function Index(props) {
         console.log(err);
       });
   }
+  console.log(showModal);
   return (
     <div>
-      <Header handleSearch = {() => handleSearch} />
+      <Header
+        handleSearch={handleSearch}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
       <Home products={products} axios />
       <Footer />
+      <ModalSearch showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }

@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logo_download from "../assets/images/download-ibisnis.png";
-import logo_ibisnis from '../assets/images/logo-ibisnis.png'
+import logo_ibisnis from "../assets/images/logo-ibisnis.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars,
+  faMapMarker,
+  faHeart,
+  faUserCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
   return (
@@ -128,6 +135,25 @@ function Footer() {
       </div>
       <div className="w-full py-5 bg-red-500 text-center text-white">
         All rights reserved @ 2022 iBisnis
+      </div>
+
+      <div className="lg:hidden fixed z-30 bottom-0 w-screen flex flex-row justify-between rounded-tr-2xl rounded-tl-2xl h-12 bg-red-500 shadow-2xl">
+        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+          <FontAwesomeIcon icon={faBars} />
+          <p className="text-xs">Categories</p>
+        </a>
+        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+          <FontAwesomeIcon icon={faMapMarker} />
+          <p className="text-xs">Surabaya</p>
+        </a>
+        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+          <FontAwesomeIcon icon={faHeart} />
+          <p className="text-xs">Saved</p>
+        </a>
+        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+          <FontAwesomeIcon icon={faUserCircle} />
+          <p className="text-xs">Account</p>
+        </a>
       </div>
     </div>
   );

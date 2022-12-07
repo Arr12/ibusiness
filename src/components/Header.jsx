@@ -12,19 +12,16 @@ import {
 } from "react-instantsearch-dom";
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 
-function Header() {
-  const searchClient = instantMeiliSearch(
-    "https://dummyjson.com/",
-    ""
-  );
-  
+function Header(props) {
+  //   const searchClient = instantMeiliSearch("https://dummyjson.com/", "");
+  const searchClient = false;
+
   function Hit(props) {
-    console.log(props);
     return (
-        <div>
-            <Highlight attribute="name" hit={props.hit} />
-        </div>
-    )
+      <div>
+        <Highlight attribute="name" hit={props.hit} />
+      </div>
+    );
   }
   return (
     <div className="fixed z-20 flex justify-between top-0 left-0 w-full bg-white shadow-md">
@@ -42,10 +39,7 @@ function Header() {
           />
         </div>
         <div className="p-2 flex items-center mx-3 border-cyan-100 rounded-md">
-          <InstantSearch
-            indexName="?q"
-            searchClient={searchClient}
-          >
+          <InstantSearch indexName="?q" searchClient={searchClient}>
             <SearchBox className="hidden lg:block border-0 border-gray-200 py-1 px-3 rounded-lg absolute lg:relative lg:border-r-0" />
             <Hits hitComponent={Hit} />
           </InstantSearch>
@@ -55,10 +49,13 @@ function Header() {
             name=""
             id=""
             placeholder="Search Keyword"
-          />
-          <div className="lg:border-y-2 lg:border-r-2 lg:border-gray-200 p-1 px-2 rounded-r-lg">
+          /> */}
+          <button
+            onClick={() => props.setShowModal(true)}
+            className="lg:border-y-2 lg:border-r-2 lg:border-gray-200 p-1 px-2 rounded-r-lg lg:hidden"
+          >
             <FontAwesomeIcon icon={faSearch} />
-          </div> */}
+          </button>
         </div>
       </div>
       <div className="hidden lg:flex lg:items-center">
