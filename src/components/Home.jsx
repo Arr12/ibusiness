@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHeart,
   faEllipsis,
-  faShareNodes,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import BgBreadcrumb from "../assets/images/background-breadcrumb.png";
@@ -15,11 +13,10 @@ import GAdwords from "../assets/images/icon-addw.png";
 import Statistik from "../assets/images/icon-vip-15.png";
 import Curve from "../assets/images/curve-2.png";
 import Website from "../assets/images/website3.jpg";
+import PricePlan from "./PricePlan";
+import Register from "./Register";
 import Image from "next/image";
 import axios from "axios";
-import {
-  Section
-} from "react-scroll-section";
 
 function Home(props) {
   const [products, setProducts] = useState(null);
@@ -137,7 +134,7 @@ function Home(props) {
         alt=""
         className="absolute right-0"
       />
-      <Section
+      <div
         className={`bg-white flex flex-col md:flex-row px-10 lg:px-48 pb-48 pt-64`}
         id="beranda"
       >
@@ -167,7 +164,7 @@ function Home(props) {
             className="animate-opacity-left-right absolute top-20 md:top-0 lg:top-20 lg:left-10 w-96 mx-auto"
           />
         </div>
-      </Section>
+      </div>
 
       <div className="flex flex-col lg:flex-row px-10 my-56 md:px-48 relative">
         <Image
@@ -264,7 +261,7 @@ function Home(props) {
         </div>
       </div>
 
-      <Section className="my-48 px-10 lg:px-24" id="keuntungan">
+      <div className="my-48 px-10 lg:px-24" id="keuntungan">
         <Image
           src={Curve}
           width="414"
@@ -343,9 +340,12 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </Section>
+      </div>
 
-      <Section className="mt-16 py-32" id="kontak">
+      <PricePlan />
+      <Register />
+
+      <div className="mt-16 py-32" id="kontak">
         <div className="px-5 lg:px-24">
           <div className="flex justify-between items-center">
             <div>
@@ -367,7 +367,7 @@ function Home(props) {
             </div>
           </div>
         </div>
-      </Section>
+      </div>
     </>
   );
 }
