@@ -5,12 +5,12 @@ import logo_ibisnis from "../assets/images/logo-ibisnis.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
-  faMapMarker,
   faHeart,
   faUserCircle,
+  faHome,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Footer() {
+function Footer(props) {
   return (
     <div>
       <div className="flex flex-col justify-center bg-gray-100 py-24 mt-7 px-8 lg:px-24 lg:flex-row">
@@ -89,7 +89,7 @@ function Footer() {
             <div className="flex flex-row">
               <a
                 href="#"
-                className="rounded-full w-10 h-10 bg-red-500 mr-3 p-3 text-white"
+                className="rounded-full w-10 h-10 bg-purple-500 mr-3 p-3 text-white"
               >
                 <svg
                   fill="#fff"
@@ -101,7 +101,7 @@ function Footer() {
               </a>
               <a
                 href="#"
-                className="rounded-full w-10 h-10 bg-red-500 mr-3 p-3 text-white"
+                className="rounded-full w-10 h-10 bg-purple-500 mr-3 p-3 text-white"
               >
                 <svg
                   fill="#fff"
@@ -113,7 +113,7 @@ function Footer() {
               </a>
               <a
                 href="#"
-                className="rounded-full w-10 h-10 bg-red-500 mr-3 p-3 text-white"
+                className="rounded-full w-10 h-10 bg-purple-500 mr-3 p-3 text-white"
               >
                 <svg
                   fill="#fff"
@@ -133,27 +133,39 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="w-full py-5 bg-red-500 text-center text-white">
+      <div className="w-full py-5 bg-purple-500 text-center text-white">
         All rights reserved @ 2022 iBisnis
       </div>
 
-      <div className="lg:hidden fixed z-30 bottom-0 w-screen flex flex-row justify-between rounded-tr-2xl rounded-tl-2xl h-12 bg-red-500 shadow-2xl">
-        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+      <div className="lg:hidden fixed z-30 bottom-0 w-screen flex flex-row justify-between rounded-tr-2xl rounded-tl-2xl h-12 bg-purple-500 shadow-2xl">
+        <button
+          onClick=""
+          className="text-white text-md my-1 w-1/4 text-center"
+        >
           <FontAwesomeIcon icon={faBars} />
           <p className="text-xs">Categories</p>
-        </a>
-        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
-          <FontAwesomeIcon icon={faMapMarker} />
-          <p className="text-xs">Surabaya</p>
-        </a>
-        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+        </button>
+        <button
+          onClick={() => props.scrollToDiv("beranda")}
+          className="text-white text-md my-1 w-1/4 text-center"
+        >
+          <FontAwesomeIcon icon={faHome} />
+          <p className="text-xs">Beranda</p>
+        </button>
+        <button
+          onClick={() => props.scrollToDiv("keuntungan")}
+          className="text-white text-md my-1 w-1/4 text-center"
+        >
           <FontAwesomeIcon icon={faHeart} />
-          <p className="text-xs">Saved</p>
-        </a>
-        <a href="#" className="text-white text-md my-1 w-1/4 text-center">
+          <p className="text-xs">Keuntungan</p>
+        </button>
+        <button
+          onClick={() => props.scrollToDiv("kontak")}
+          className="text-white text-md my-1 w-1/4 text-center"
+        >
           <FontAwesomeIcon icon={faUserCircle} />
-          <p className="text-xs">Account</p>
-        </a>
+          <p className="text-xs">Hubungi</p>
+        </button>
       </div>
     </div>
   );

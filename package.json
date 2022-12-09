@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-instantsearch-dom": "^6.38.1",
     "react-scripts": "5.0.1",
+    "react-scroll-section": "^3.2.5",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"

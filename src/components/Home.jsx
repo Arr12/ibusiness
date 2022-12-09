@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
   faEllipsis,
   faShareNodes,
   faStar,
-  faChevronLeft,
-  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import BgBreadcrumb from "../assets/images/background-breadcrumb.png";
+import IbisnisLap from "../assets/images/ibisnis_lap.png";
+import SeoOptimization from "../assets/images/icon-seo.png";
+import Support from "../assets/images/icon-support-cs.png";
+import GAdwords from "../assets/images/icon-addw.png";
+import Statistik from "../assets/images/icon-vip-15.png";
+import Curve from "../assets/images/curve-2.png";
+import Website from "../assets/images/website3.jpg";
+import Image from "next/image";
 import axios from "axios";
+import {
+  Section
+} from "react-scroll-section";
 
 function Home(props) {
   const [products, setProducts] = useState(null);
@@ -121,303 +130,71 @@ function Home(props) {
 
   return (
     <>
-      <div className="bg-white flex flex-col items-center">
-        <h1 className="w-9/12 text-4xl border-b-[10px] border-red-500 text-gray-800 pt-48 font-bold text-center lg:text-6xl lg:w-1/3 pb-4 tracking-[-2px]">
-          REAL BUSINESS <br />
-          REAL PEOPLE <sub>™</sub>
-        </h1>
-        <p className="text-2xl my-5">Start your Business here</p>
-        <a
-          className="mt-5 px-6 py-4 bg-red-500 text-white rounded-md"
-          href="https://ibisnis.com/register"
-        >
-          Sign Up
-        </a>
-      </div>
-
-      <div className="mt-48 px-3 lg:px-24 mb-3">
-        <div className="flex justify-between items-center">
-          <h2 className="font-bold text-2xl">Listing</h2>
+      <Image
+        src={BgBreadcrumb}
+        width="1155"
+        height="721"
+        alt=""
+        className="absolute right-0"
+      />
+      <Section
+        className={`bg-white flex flex-col md:flex-row px-10 lg:px-48 pb-48 pt-64`}
+        id="beranda"
+      >
+        <div className="animate-opacity-top md:w-1/2">
+          <h1 className="text-4xl text-gray-800 font-bold lg:text-6xl pb-4">
+            REAL BUSINESS <br />
+            <span className="text-purple-500">
+              REAL PEOPLE <sub>™</sub>
+            </span>
+          </h1>
+          <div className="text-2xl mt-5 mb-14">
+            <p className="text-gray-400">Start your Business here</p>
+          </div>
           <a
-            href="https://ibisnis.com/business"
-            className="px-3 py-2 border-2 border-gray-300 rounded-md"
+            className="px-6 py-4 bg-purple-500 text-white rounded-full"
+            href="https://ibisnis.com/register"
           >
-            More
+            Sign Up
           </a>
         </div>
-      </div>
-      <hr />
-      <div className="w-full px-7 mt-5 lg:px-24">
-        <Slider className="mt-10 w-full mx-auto" {...settings}>
-          {products?.map((v, i) => {
-            return (
-              <div>
-                <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                  <img
-                    src={v.thumbnail}
-                    width="500"
-                    height="250"
-                    alt=""
-                    className="w-full h-64"
-                  />
-                  <p className="text-gray-500 p-3">
-                    {v.description.length > 50
-                      ? v.description.substring(0, 50) + "..."
-                      : v.description}
-                  </p>
-                  <div className="flex flex-row justify-between border-b-2 border-gray-300 w-full items-center p-3">
-                    <div className="flex flex-row">
-                      <div className="rounded-full w-14 h-14 overflow-hidden">
-                        <img
-                          width="80"
-                          height="80"
-                          src={v.thumbnail}
-                          className=""
-                          alt=""
-                        />
-                      </div>
-                      <div className="flex flex-col ml-3">
-                        <h3 className="font-bold">
-                          {v.brand.length > 15
-                            ? v.brand.substring(0, 15) + "..."
-                            : v.brand}
-                        </h3>
-                        <small className="text-gray-500 capitalize">
-                          {v.category}
-                        </small>
-                      </div>
-                    </div>
-                    <div className="flex flex-row">
-                      <div className="mx-2">
-                        <FontAwesomeIcon icon={faHeart} />
-                      </div>
-                      <div className="mx-2">
-                        <FontAwesomeIcon icon={faShareNodes} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
+        <div className="md:w-1/2 relative">
+          <Image
+            src={IbisnisLap}
+            width="1516"
+            height="893"
+            alt=""
+            className="animate-opacity-left-right absolute top-20 md:top-0 lg:top-20 lg:left-10 w-96 mx-auto"
+          />
+        </div>
+      </Section>
 
-      <div className="mt-48 px-3 lg:px-24 mb-3">
-        <div className="flex justify-between items-center">
-          <h2 className="font-bold text-2xl">Hotel</h2>
-          <a
-            href="https://ibisnis.com/business"
-            className="px-3 py-2 border-2 border-gray-300 rounded-md"
-          >
-            More
-          </a>
+      <div className="flex flex-col lg:flex-row px-10 my-56 md:px-48 relative">
+        <Image
+          src={Curve}
+          width="414"
+          height="825"
+          alt=""
+          className="absolute right-0 scale-x-[-1] top-[-150px]"
+        />
+        <div className="w-full md:w-1/2">
+          <h2 className="text-2xl font-bold mb-5">
+            iBisnis.com menawarkan solusi website dengan design dan template
+            profesional.
+          </h2>
+          <p>
+            iBisnis memberikan pilihan design modern dan tampil elegan untuk
+            setiap website yang dihasilkan sehingga tetep menarik. Website 100%
+            mobile friendly sehingga website Anda akan mudah diakses melalui
+            perangkat apapun, kapanpun, dan dimanapun
+          </p>
+        </div>
+        <div className="w-full mt-10 md:w-1/2 md:mt-0">
+          <Image src={Website} alt="" width="1023" height="682" className="rounded-tl-[200px] rounded-tr-[80px] rounded-br-[362px] rounded-[200px]" />
         </div>
       </div>
-      <hr />
-      <div className="w-full px-7 mt-5 lg:px-24">
-        <Slider className="mt-10 w-full mx-auto" {...settings}>
-          {products?.map((v, i) => {
-            return (
-              <div>
-                <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                  <div className="flex flex-row justify-between w-full items-center p-3">
-                    <div className="flex flex-row">
-                      <div className="rounded-full w-14 h-14 overflow-hidden">
-                        <img
-                          width="60"
-                          height="60"
-                          src={v.thumbnail}
-                          className=""
-                          alt=""
-                        />
-                      </div>
-                      <div className="flex flex-col ml-3">
-                        <h3 className="font-bold">
-                          {v.brand.length > 15
-                            ? v.brand.substring(0, 15) + "..."
-                            : v.brand}
-                        </h3>
-                        <small className="text-gray-500">{v.category}</small>
-                      </div>
-                    </div>
-                    <div className="flex flex-col">
-                      <FontAwesomeIcon icon={faEllipsis} />
-                    </div>
-                  </div>
-                  <img
-                    src={v.thumbnail}
-                    width="500"
-                    height="250"
-                    alt=""
-                    className="w-full h-64"
-                  />
-                  <div className="flex flex-col ml-3 py-3">
-                    <h3 className="font-bold">
-                      {v.title > 15
-                        ? v.title.substring(0, 15) + "..."
-                        : v.title}
-                    </h3>
-                    <small className="text-gray-500">$ {v.price}</small>
-                  </div>
-                  <div className="flex flex-row ml-3 py-2">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500"
-                    />
-                    <small className="ml-2">{v.rating}</small>
-                  </div>
-                  <p className="text-gray-500 p-3">
-                    {v.description.length > 50
-                      ? v.description.substring(0, 50) + "..."
-                      : v.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
 
-      <div className="mt-48 px-3 lg:px-24 mb-3">
-        <div className="flex justify-between items-center">
-          <h2 className="font-bold text-2xl">Restaurant</h2>
-          <a
-            href="https://ibisnis.com/business"
-            className="px-3 py-2 border-2 border-gray-300 rounded-md"
-          >
-            More
-          </a>
-        </div>
-      </div>
-      <hr />
-      <div className="w-full px-7 mt-5 lg:px-24">
-        <Slider className="mt-10 w-full mx-auto" {...settings}>
-          {products?.map((v, i) => {
-            return (
-              <div>
-                <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                  <div className="bg-red-300 shadow-inner">
-                    <img
-                      src={v.thumbnail}
-                      width="500"
-                      height="250"
-                      alt=""
-                      className="w-full h-64 rounded-br-full shadow-lg"
-                    />
-                  </div>
-                  <div className="flex flex-row justify-between w-full items-center p-3">
-                    <div className="flex flex-row">
-                      <div className="rounded-full w-14 h-14 overflow-hidden">
-                        <img
-                          width="60"
-                          height="60"
-                          src={v.thumbnail}
-                          className=""
-                          alt=""
-                        />
-                      </div>
-                      <div className="flex flex-col ml-3">
-                        <h3 className="font-bold">
-                          {v.brand.length > 15
-                            ? v.brand.substring(0, 15) + "..."
-                            : v.brand}
-                        </h3>
-                        <small className="text-gray-500">{v.category}</small>
-                      </div>
-                    </div>
-                    <div className="flex flex-col">
-                      <FontAwesomeIcon icon={faEllipsis} />
-                    </div>
-                  </div>
-                  <div className="flex flex-col ml-3 py-3">
-                    <h3 className="font-bold">
-                      {v.title > 15
-                        ? v.title.substring(0, 15) + "..."
-                        : v.title}
-                    </h3>
-                    <small className="text-gray-500">$ {v.price}</small>
-                  </div>
-                  <div className="flex flex-row ml-3 py-2">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500"
-                    />
-                    <small className="ml-2">{v.rating}</small>
-                  </div>
-                  <p className="text-gray-500 p-3">
-                    {v.description.length > 50
-                      ? v.description.substring(0, 50) + "..."
-                      : v.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
-
-      <div className="mt-48 px-3 lg:px-24 mb-3">
-        <div className="flex justify-between items-center">
-          <h2 className="font-bold text-2xl">Destination</h2>
-          <a
-            href="https://ibisnis.com/business"
-            className="px-3 py-2 border-2 border-gray-300 rounded-md"
-          >
-            More
-          </a>
-        </div>
-      </div>
-      <hr />
-      <div className="w-full px-7 mt-5 lg:px-24">
-        <Slider className="mt-10 w-full mx-auto" {...settings}>
-          {products?.map((v, i) => {
-            return (
-              <div>
-                <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                  <div className="bg-red-300 shadow-inner relative">
-                    <div className="absolute top-0 bg-gray-700 opacity-60 w-full h-full"></div>
-                    <img
-                      src={v.thumbnail}
-                      width="500"
-                      height="250"
-                      alt=""
-                      className="w-full h-64 shadow-lg"
-                    />
-                  </div>
-                  <div className="flex flex-row justify-between w-full items-center p-3 absolute top-0">
-                    <div className="flex flex-col ml-3 py-3">
-                      <h3 className="font-bold text-white">
-                        {v.title > 15
-                          ? v.title.substring(0, 15) + "..."
-                          : v.title}
-                      </h3>
-                      <small className="text-white">$ {v.price}</small>
-                    </div>
-                    <div className="flex flex-col">
-                      <FontAwesomeIcon icon={faEllipsis} />
-                    </div>
-                  </div>
-                  <div className="flex flex-row ml-3 py-2 mt-3">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      className="text-yellow-500"
-                    />
-                    <small className="ml-2">{v.rating}</small>
-                  </div>
-                  <p className="text-gray-500 p-3">
-                    {v.description.length > 50
-                      ? v.description.substring(0, 50) + "..."
-                      : v.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
-
-      <div className="mt-48 px-3 lg:px-24 mb-3">
+      <div className="mt-48 px-10 lg:px-24 mb-3">
         <div className="flex flex-col justify-between items-center">
           <h2 className="font-bold text-2xl mb-4">New Listing</h2>
           <div className="flex flex-col border-b-2 w-full justify-center">
@@ -428,7 +205,7 @@ function Home(props) {
                   return (
                     <button
                       value={v}
-                      className={`capitalize px-3 py-2 ${
+                      className={`capitalize px-10 py-2 ${
                         filterData === v ? `border-b-4 border-gray-600` : ""
                       }`}
                       onClick={handleFilter}
@@ -443,49 +220,41 @@ function Home(props) {
                 return (
                   <div>
                     <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                      <img
-                        src={v.thumbnail}
-                        width="500"
-                        height="250"
-                        alt=""
-                        className="w-full h-64"
-                      />
+                      <div className="bg-red-300 shadow-inner relative">
+                        <div className="absolute top-0 bg-gray-700 opacity-60 w-full h-full"></div>
+                        <img
+                          src={v.thumbnail}
+                          width="500"
+                          height="250"
+                          alt=""
+                          className="w-full h-64 shadow-lg"
+                        />
+                      </div>
+                      <div className="flex flex-row justify-between w-full items-center p-3 absolute top-0">
+                        <div className="flex flex-col ml-3 py-3">
+                          <h3 className="font-bold text-white">
+                            {v.title > 15
+                              ? v.title.substring(0, 15) + "..."
+                              : v.title}
+                          </h3>
+                          <small className="text-white">$ {v.price}</small>
+                        </div>
+                        <div className="flex flex-col">
+                          <FontAwesomeIcon icon={faEllipsis} />
+                        </div>
+                      </div>
+                      <div className="flex flex-row ml-3 py-2 mt-3">
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          className="text-yellow-500"
+                        />
+                        <small className="ml-2">{v.rating}</small>
+                      </div>
                       <p className="text-gray-500 p-3">
                         {v.description.length > 50
                           ? v.description.substring(0, 50) + "..."
                           : v.description}
                       </p>
-                      <div className="flex flex-row justify-between border-b-2 border-gray-300 w-full items-center p-3">
-                        <div className="flex flex-row">
-                          <div className="rounded-full w-14 h-14 overflow-hidden">
-                            <img
-                              width="80"
-                              height="80"
-                              src={v.thumbnail}
-                              className=""
-                              alt=""
-                            />
-                          </div>
-                          <div className="flex flex-col ml-3">
-                            <h3 className="font-bold">
-                              {v.brand.length > 15
-                                ? v.brand.substring(0, 15) + "..."
-                                : v.brand}
-                            </h3>
-                            <small className="text-gray-500 capitalize">
-                              {v.category}
-                            </small>
-                          </div>
-                        </div>
-                        <div className="flex flex-row">
-                          <div className="mx-2">
-                            <FontAwesomeIcon icon={faHeart} />
-                          </div>
-                          <div className="mx-2">
-                            <FontAwesomeIcon icon={faShareNodes} />
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 );
@@ -495,141 +264,110 @@ function Home(props) {
         </div>
       </div>
 
-      <div className="mt-48 px-3 lg:px-24 mb-3">
-        <div className="flex justify-between items-center">
-          <h2 className="font-bold text-2xl">Important Number</h2>
-          <a
-            href="https://ibisnis.com/business"
-            className="px-3 py-2 border-2 border-gray-300 rounded-md"
-          >
-            More
-          </a>
+      <Section className="my-48 px-10 lg:px-24" id="keuntungan">
+        <Image
+          src={Curve}
+          width="414"
+          height="825"
+          alt=""
+          className="absolute left-0"
+        />
+        <div className="flex flex-col justify-between items-center">
+          <h2 className="font-bold text-2xl mb-4">
+            Keuntungan Bergabung dengan IBisnis
+          </h2>
+          <p>Segera kembangkan bisnis Anda dengan bergabung di iBisnis</p>
         </div>
-      </div>
-      <hr />
-      <div className="w-full px-7 mt-5 lg:px-24">
-        <Slider className="mt-10 w-full mx-auto" {...settings}>
-          {products?.map((v, i) => {
-            return (
-              <div>
-                <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                  <img
-                    src={v.thumbnail}
-                    width="500"
-                    height="250"
-                    alt=""
-                    className="w-full h-64"
-                  />
-                  <p className="text-gray-500 p-3">
-                    {v.description.length > 50
-                      ? v.description.substring(0, 50) + "..."
-                      : v.description}
-                  </p>
-                  <div className="flex flex-row justify-between border-b-2 border-gray-300 w-full items-center p-3">
-                    <div className="flex flex-row">
-                      <div className="rounded-full w-14 h-14 overflow-hidden">
-                        <img
-                          width="80"
-                          height="80"
-                          src={v.thumbnail}
-                          className=""
-                          alt=""
-                        />
-                      </div>
-                      <div className="flex flex-col ml-3">
-                        <h3 className="font-bold">
-                          {v.brand.length > 15
-                            ? v.brand.substring(0, 15) + "..."
-                            : v.brand}
-                        </h3>
-                        <small className="text-gray-500 capitalize">
-                          {v.category}
-                        </small>
-                      </div>
-                    </div>
-                    <div className="flex flex-row">
-                      <div className="mx-2">
-                        <FontAwesomeIcon icon={faHeart} />
-                      </div>
-                      <div className="mx-2">
-                        <FontAwesomeIcon icon={faShareNodes} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
+        <div className="flex flex-col lg:flex-row mt-16">
+          <div className="flex w-full flex-col lg:w-1/4 md:flex-row lg:flex-col lg:items-center px-5">
+            <Image
+              src={SeoOptimization}
+              width="500"
+              height="449"
+              alt=""
+              className="md:w-2/6 lg:w-9/12 bg-purple-100 my-10 rounded-tl-[80px] rounded-tr-[200px] rounded-br-[200px] rounded-[362px]"
+            />
+            <div className="flex flex-col justify-center ml-5">
+              <h3 className="font-bold text-xl my-3">
+                Search Engine Optimization
+              </h3>
+              <p>
+                Meningkatkan peringkat bisnis Anda pada halaman utama Google dan
+                ditemukan calon customer
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full flex-col lg:w-1/4 md:flex-row lg:flex-col lg:items-center px-5">
+            <Image
+              src={Support}
+              width="500"
+              height="449"
+              alt=""
+              className="md:w-2/6 lg:w-9/12 bg-purple-100 my-10 rounded-tl-[80px] rounded-tr-[200px] rounded-br-[200px] rounded-[362px]"
+            />
+            <div className="flex flex-col justify-center ml-5">
+              <h3 className="font-bold text-xl my-3">Dukungan Pelanggan</h3>
+              <p>
+                Kami siap membantu melalui email, media sosial dan call center
+                (+62315660008)
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full flex-col lg:w-1/4 md:flex-row lg:flex-col lg:items-center px-5">
+            <Image
+              src={GAdwords}
+              width="500"
+              height="449"
+              alt=""
+              className="md:w-2/6 lg:w-9/12 bg-purple-100 my-10 rounded-tl-[80px] rounded-tr-[200px] rounded-br-[200px] rounded-[362px]"
+            />
+            <div className="flex flex-col justify-center ml-5">
+              <h3 className="font-bold text-xl my-3">Google Adwords</h3>
+              <p>
+                Memudahkan pencari menemukan sumber informasi sesuai dengan kata
+                kunci
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full flex-col lg:w-1/4 md:flex-row lg:flex-col lg:items-center px-5">
+            <Image
+              src={Statistik}
+              width="500"
+              height="449"
+              alt=""
+              className="md:w-2/6 lg:w-9/12 bg-purple-100 my-10 rounded-tl-[80px] rounded-tr-[200px] rounded-br-[200px] rounded-[362px]"
+            />
+            <div className="flex flex-col justify-center ml-5">
+              <h3 className="font-bold text-xl my-3">Statistik Pengunjung</h3>
+              <p>Layanan dari iBisnis yang menampilkan statistik pengunjung.</p>
+            </div>
+          </div>
+        </div>
+      </Section>
 
-      <div className="mt-48 px-3 lg:px-24 mb-3">
-        <div className="flex justify-between items-center">
-          <h2 className="font-bold text-2xl">Education</h2>
-          <a
-            href="https://ibisnis.com/education"
-            className="px-3 py-2 border-2 border-gray-300 rounded-md"
-          >
-            More
-          </a>
+      <Section className="mt-16 py-32" id="kontak">
+        <div className="px-5 lg:px-24">
+          <div className="flex justify-between items-center">
+            <div>
+              <h2 className="font-bold text-xl">
+                Tertarik bergabung dengan kami ?
+              </h2>
+              <p className="text-gray-500 py-2">
+                Beri kami panggilan sekarang!
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center pl-5">
+              <p>Call us now : &nbsp;</p>
+              <a
+                href="https://wa.me/628113119903?text=Hello%20iBisnis"
+                className="py-2 border-0 rounded-md font-bold text-purple-500"
+              >
+                (+62) 8113119903
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-      <hr />
-      <div className="w-full px-7 mt-5 lg:px-24">
-        <Slider className="mt-10 w-full mx-auto" {...settings}>
-          {products?.map((v, i) => {
-            return (
-              <div>
-                <div className="flex flex-col shadow-md rounded-lg overflow-hidden mx-4">
-                  <img
-                    src={v.thumbnail}
-                    width="500"
-                    height="250"
-                    alt=""
-                    className="w-full h-64"
-                  />
-                  <p className="text-gray-500 p-3">
-                    {v.description.length > 50
-                      ? v.description.substring(0, 50) + "..."
-                      : v.description}
-                  </p>
-                  <div className="flex flex-row justify-between border-b-2 border-gray-300 w-full items-center p-3">
-                    <div className="flex flex-row">
-                      <div className="rounded-full w-14 h-14 overflow-hidden">
-                        <img
-                          width="80"
-                          height="80"
-                          src={v.thumbnail}
-                          className=""
-                          alt=""
-                        />
-                      </div>
-                      <div className="flex flex-col ml-3">
-                        <h3 className="font-bold">
-                          {v.brand.length > 15
-                            ? v.brand.substring(0, 15) + "..."
-                            : v.brand}
-                        </h3>
-                        <small className="text-gray-500 capitalize">
-                          {v.category}
-                        </small>
-                      </div>
-                    </div>
-                    <div className="flex flex-row">
-                      <div className="mx-2">
-                        <FontAwesomeIcon icon={faHeart} />
-                      </div>
-                      <div className="mx-2">
-                        <FontAwesomeIcon icon={faShareNodes} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
+      </Section>
     </>
   );
 }
