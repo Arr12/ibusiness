@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Preloader from "../src/components/Preloader";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 import Home from "../src/components/Home";
@@ -8,7 +9,13 @@ import axios from "axios";
 function Index(props) {
   const [products, setProducts] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  
+  const [offset, setOffset] = useState(0);
+
+  function scrollToDiv(id){
+    const divElement = document.getElementById(id);
+    divElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products")
@@ -18,6 +25,11 @@ function Index(props) {
       .catch((err) => {
         console.log(err);
       });
+    const onScroll = () => setOffset(window.pageYOffset);
+    // clean up code
+    window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
   function addProducts(title) {
     axios
@@ -63,18 +75,21 @@ function Index(props) {
         console.log(err);
       });
   }
-  console.log(showModal);
+
   return (
-    <div>
+    <>
+      <Preloader />
       <Header
         handleSearch={handleSearch}
         showModal={showModal}
         setShowModal={setShowModal}
+        offset={offset}
+        scrollToDiv={scrollToDiv}
       />
-      <Home products={products} axios />
-      <Footer />
+      <Home products={products} />
+      <Footer scrollToDiv={scrollToDiv} />
       <ModalSearch showModal={showModal} setShowModal={setShowModal} />
-    </div>
+    </>
   );
 }
 

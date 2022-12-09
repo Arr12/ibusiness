@@ -25,11 +25,14 @@ function ModalSearch(props) {
         props.showModal === true ? "block" : "hidden"
       } top-0 z-30 fixed w-screen h-screen bg-gray-200`}
     >
-      <button className="ml-3 mt-3" onClick={() => props.setShowModal(false)}>
+      <button
+        className="ml-[10%] mt-[10%]"
+        onClick={() => props.setShowModal(false)}
+      >
         <FontAwesomeIcon icon={faTimes} />
       </button>
       <InstantSearch indexName="?q" searchClient={searchClient}>
-        <SearchBox className="top-1/2 left-[20%] border-0 border-gray-200 py-1 px-3 rounded-lg absolute lg:relative lg:border-r-0" />
+        <SearchBox className="top-[30%] w-[60%] left-[20%] border-0 border-gray-200 py-1 px-3 rounded-lg absolute lg:relative lg:border-r-0" />
         <Hits hitComponent={Hit} />
       </InstantSearch>
     </div>
